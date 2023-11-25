@@ -1,0 +1,25 @@
+{
+	"plugins": [
+		{
+			"name": "VideoUploader",
+			"className": "VideoUploader",
+			"path": "src/videouploader.js",
+			"description": "Video uploader for CKEditor 5.",
+			"docs": "",
+			"uiComponents": [
+				{
+					"type": "SplitButton",
+					"name": "videoUploader",
+					"iconPath": "alikhosravidev/ckeditor5-video-uploader/theme/icons/media.svg"
+				}
+			],
+			"htmlOutput": [
+				{
+					"elements": "$text",
+					"classes": "block-shortcode",
+					"_comment": "By default, the video uploader feature uses the `block-shortcode` class."
+				}
+			]
+		}
+	]
+}

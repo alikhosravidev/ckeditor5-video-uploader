@@ -10,3 +10,9 @@ Changes for the past releases are available below.
 ### Features
 
 * Initial implementation.
+
+## 1.1.1 (2023-12-20)
+
+### Features
+
+* Update ckeditor to 40.2.0

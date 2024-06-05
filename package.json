@@ -1,6 +1,6 @@
 {
   "name": "ckeditor5-video-uploader",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "description": "Video uploader for CKEditor 5.",
   "keywords": [
     "ckeditor",
@@ -14,13 +14,13 @@
   ],
   "main": "src/index.js",
   "dependencies": {
-    "ckeditor5": "^41.2.1",
-    "@ckeditor/ckeditor5-clipboard": "^41.2.1",
-    "@ckeditor/ckeditor5-core": "^41.2.1",
+    "ckeditor5": "41.2.1",
+    "@ckeditor/ckeditor5-clipboard": "41.2.1",
+    "@ckeditor/ckeditor5-core": "41.2.1",
     "@ckeditor/ckeditor5-dev-utils": "^39.0.0",
-    "@ckeditor/ckeditor5-ui": "^41.2.1",
+    "@ckeditor/ckeditor5-ui": "41.2.1",
     "@ckeditor/ckeditor5-upload": "41.2.1",
-    "@ckeditor/ckeditor5-widget": "^41.2.1"
+    "@ckeditor/ckeditor5-widget": "41.2.1"
   },
   "devDependencies": {
     "typescript": "^4.8.4",

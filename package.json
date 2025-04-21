@@ -1,6 +1,6 @@
 {
   "name": "ckeditor5-video-uploader",
-  "version": "1.1.12",
+  "version": "45.0.0",
   "description": "Video uploader for CKEditor 5.",
   "keywords": [
     "ckeditor",
@@ -12,45 +12,62 @@
     "ckeditor5-video-uploader",
     "ckeditor5-video-shortcode"
   ],
-  "main": "src/index.js",
-  "dependencies": {
-    "ckeditor5": "41.2.1",
-    "@ckeditor/ckeditor5-clipboard": "41.2.1",
-    "@ckeditor/ckeditor5-core": "41.2.1",
-    "@ckeditor/ckeditor5-dev-utils": "^39.0.0",
-    "@ckeditor/ckeditor5-ui": "41.2.1",
-    "@ckeditor/ckeditor5-upload": "41.2.1",
-    "@ckeditor/ckeditor5-widget": "41.2.1"
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*",
+    "./browser/*": null,
+    "./package.json": "./package.json"
   },
-  "devDependencies": {
-    "typescript": "^4.8.4",
-    "webpack": "^5.58.1",
-    "webpack-cli": "^4.9.0"
-  },
+  "license": "MIT",
   "engines": {
-    "node": ">=16.0.0",
+    "node": ">=18.0.0",
     "npm": ">=5.7.1"
   },
-  "author": "Ali khosravi",
-  "license": "GPL-2.0-or-later",
-  "homepage": "https://github.com/alikhosravidev/ckeditor5-video-uploader",
-  "bugs": "https://github.com/alikhosravidev/ckeditor5-video-uploader/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alikhosravidev/ckeditor5-video-uploader.git",
-    "directory": "packages/ckeditor5-video-uploader"
-  },
   "files": [
-    "src/**/*.js",
-    "src/**/*.d.ts",
-    "theme",
-    "ckeditor5-metadata.json",
-    "CHANGELOG.md"
+    "dist",
+    "ckeditor5-metadata.json"
   ],
-  "scripts": {
-    "dll:build": "webpack",
-    "build": "tsc -p ./tsconfig.json",
-    "postversion": "npm run build"
+  "devDependencies": {
+    "@ckeditor/ckeditor5-dev-build-tools": "43.0.1",
+    "@ckeditor/ckeditor5-inspector": ">=4.1.0",
+    "@ckeditor/ckeditor5-package-tools": "^3.0.1",
+    "ckeditor5": "45.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-ckeditor5": ">=9.1.0",
+    "http-server": "^14.1.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.6",
+    "stylelint": "^13.13.1",
+    "stylelint-config-ckeditor5": ">=9.1.0",
+    "vite-plugin-svgo": "~1.4.0",
+    "webdriverio": "^9.0.7"
   },
-  "types": "src/index.d.ts"
+  "peerDependencies": {
+    "ckeditor5": ">=42.0.0 || ^0.0.0-nightly"
+  },
+  "scripts": {
+    "build:dist": "node ./scripts/build-dist.mjs",
+    "lint": "eslint \"**/*.js\" --quiet",
+    "start": "ckeditor5-package-tools start",
+    "stylelint": "stylelint --quiet --allow-empty-input 'theme/**/*.css'",
+    "prepare": "npm run build:dist",
+    "translations:synchronize": "ckeditor5-package-tools translations:synchronize",
+    "translations:validate": "ckeditor5-package-tools translations:synchronize --validate-only"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --quiet"
+    ],
+    "**/*.css": [
+      "stylelint --quiet --allow-empty-input"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
 }

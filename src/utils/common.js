@@ -5,7 +5,7 @@
 /**
  * @module utils/common
  */
-import {findOptimalInsertionRange} from '@ckeditor/ckeditor5-widget/src/utils';
+import { findOptimalInsertionRange } from 'ckeditor5';
 
 /**
  * Creates a regular expression used to test for files.
@@ -14,20 +14,23 @@ import {findOptimalInsertionRange} from '@ckeditor/ckeditor5-widget/src/utils';
  * @returns {RegExp}
  */
 export function createVideoTypeRegExp(types) {
-    // Sanitize the MIME type name which may include: "+", "-" or ".".
-    const regExpSafeNames = types.map(type => type.replace('+', '\\+'));
-    return new RegExp(`^video\\/(${regExpSafeNames.join('|')})$`);
+	// Sanitize the MIME type name which may include: "+", "-" or ".".
+	const regExpSafeNames = types.map(type => type.replace('+', '\\+'));
+	return new RegExp(`^video\\/(${regExpSafeNames.join('|')})$`);
 }
 
 export function insertVideoTag(writer, editor, attributes = {}) {
-    const selection = editor.model.document.selection;
-    const insertAtSelection = findOptimalInsertionRange(selection, editor.model);
-    let shortcode = '[video h=100% w=100%]'+attributes.videoUrl+'[/video]';
+	const selection = editor.model.document.selection;
+	const insertAtSelection = findOptimalInsertionRange(
+		selection,
+		editor.model
+	);
+	let shortcode = '[video h=100% w=100%]' + attributes.videoUrl + '[/video]';
 
-    const videoTagText = writer.createText(shortcode, attributes);
-    editor.model.insertContent(videoTagText, insertAtSelection);
+	const videoTagText = writer.createText(shortcode, attributes);
+	editor.model.insertContent(videoTagText, insertAtSelection);
 
-    if (videoTagText.parent) {
-        writer.setSelection(videoTagText, 'on');
-    }
+	if (videoTagText.parent) {
+		writer.setSelection(videoTagText, 'on');
+	}
 }

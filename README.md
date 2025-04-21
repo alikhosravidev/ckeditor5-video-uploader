@@ -1,5 +1,4 @@
-CKEditor 5 video uploader feature
-========================================
+# CKEditor 5 video uploader feature
 
 [![npm version](https://badge.fury.io/js/ckeditor.svg)](https://www.npmjs.com/package/alikhosravidev/ckeditor5-video-uploader)
 
